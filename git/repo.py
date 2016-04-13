@@ -190,3 +190,15 @@ class GitPullCurrentBranchCommand(GitWindowCommand):
 
 class GitPushCurrentBranchCommand(GitPullCurrentBranchCommand):
     command_to_run_after_describe = 'push'
+
+
+class GitCopyBranchName(GitBranchCommand):
+    def branch_done(self, result):
+        self.results = result.rstrip().split('\n')
+        self.results = [item for item in self.results if item.strip().startswith("*")]
+        if len(self.results) == 0:
+            sublime.status_message("Can't get current branch name")
+            return
+        current_branch = self.results[0][1:].strip()
+        sublime.set_clipboard(current_branch)
+        sublime.status_message('"' + current_branch + '" copied into clipboard')

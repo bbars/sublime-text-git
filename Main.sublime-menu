@@ -92,6 +92,7 @@
                     ,{ "caption": "Branches...", "command": "git_branch" }
                     ,{ "caption": "Track Remote Branch", "command": "git_track_remote_branch" }
                     ,{ "caption": "Merge...", "command": "git_merge" }
+                    ,{ "caption": "Copy Branch Name", "command": "git_copy_branch_name" }
                     ,{ "caption": "See commit history...", "command": "git_commit_history"}
                 ]
             }
